@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up form</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: 15%;
+            margin-right: 15%;
+            padding: 12px;
+            text-align: center;
+        }
+
+        #form {
+            box-shadow: 5px 5px 40px grey;
+            padding: 2rem;
+        }
+
+        h1 {
+            margin: 3rem;
+            color: orchid;
+        }
+
+        .form-input input {
+            width: 30rem;
+            height: 2.5rem;
+            margin: 0.5rem;
+        }
+
+        #btn {
+            margin: 2rem;
+            padding: 2rem;
+        }
+
+        .btn-class {
+            padding-left: 5rem;
+            padding-right: 5rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+
+        }
+
+        #btn :hover {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div id="form">
+        <h1>Sign up</h1>
+        <!-- form -->
+        <form action="" name="Signup" id="signup" onsubmit="formInput(event)">
+            <div class="form-input names">
+                <input type="text" placeholder="First name" id="firstName" name="firstName">
+                <input type="text" placeholder="Last name" id="lastName" name="lastName">
+            </div>
+            <div class="form-input">
+                <input type="email" placeholder="Email" id="email" name="email">
+            </div>
+
+            <div class="form-input">
+                <input type="number" placeholder="Phone number" id="phone" name="phone">
+            </div>
+
+            <div class="form-input">
+                <input type="date" placeholder="DOB" id="date" name="date">
+            </div>
+            <div class="form-input">
+                <input type="password" placeholder="Enter password" id="password" name="password">
+            </div>
+
+            <div id="btn">
+                <input class="btn-class" type="submit" value="submit">
+                <!-- <button>Sign Up</button> -->
+            </div>
+
+            <h4>Have an account? <a href="./signin.html">Sign in here</a></h4>
+        </form>
+    </div>
+
+
+    <script>
+
+        // let form = document.getElementById("signup");
+        let firstName = document.getElementById("firstName");
+        let lastName = document.getElementById("lastName");
+        let email = document.getElementById("email");
+        let phone = document.getElementById("phone");
+        let date = document.getElementById("date");
+        let password = document.getElementById("password");
+        // let confirmPassword = document.getElementById("confirm-password");
+
+        function formInput(event) {
+            event.preventDefault();
+            console.log('Good');
+            console.log(firstName.value);
+
+            const formData = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                phone: phone.value,
+                date: date.value,
+                password: password.value
+                // confirmPassword: confirmPassword.value  
+            };
+    
+            localStorage.setItem('userData', JSON.stringify(formData));
+        }
+
+
+
+        // const formDetails = JSON.parse(localStorage.getItem("userData"));
+
+        // console.log(formDetails)
+
+    </script>
+</body>
+
+</html>
